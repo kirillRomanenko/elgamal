@@ -161,12 +161,12 @@ int main() {
         std::chrono::duration<double> elapsed = end - start;
         totalEncryptionTime += elapsed.count();
 
-        std::cout << "Block " << blockCount + 1 << " encrypted in " << elapsed.count() << " seconds." << std::endl;
+        std::cout << "Блок № " << blockCount + 1 << " зашифрован за " << elapsed.count() << " секунд." << std::endl;
         blockCount++;
     }
 
-    std::cout << "Total encryption time: " << totalEncryptionTime << " seconds." << std::endl;
-    std::cout << "Total blocks: " << blockCount << std::endl;
+    std::cout << "Общее время шифрования: " << totalEncryptionTime << " секунд." << std::endl;
+    std::cout << "Общее количество блоков: " << blockCount << std::endl;
 
     // Запись зашифрованного файла
     writeFile("encrypted.bin", encryptedBlocks);
