@@ -29,6 +29,8 @@ void generateBinaryFile(const std::string& filename, size_t n) {
 int main() {
     std::string filename = "data.bin";
     size_t n = 32;  // Размер файла в байтах
+    // size_t n = 1048576;  // Размер файла в байтах 1 мб
+    // size_t n = 10485760;  // Размер файла в байтах 10 мб
 
     generateBinaryFile(filename, n);
 
