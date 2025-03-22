@@ -151,19 +151,23 @@ int main() {
     size_t blockCount = 0;
     double totalEncryptionTime = 0.0;
 
+    auto total_start = std::chrono::high_resolution_clock::now(); // Замер времени начала шифрования
     for (const auto& block : blocks) {
-        auto start = std::chrono::high_resolution_clock::now(); // Замер времени начала шифрования
+        // auto start = std::chrono::high_resolution_clock::now(); // Замер времени начала шифрования
 
         std::vector<unsigned char> encryptedBlock = encryptBlock(block, key);
         encryptedBlocks.push_back(encryptedBlock);
 
-        auto end = std::chrono::high_resolution_clock::now(); // Замер времени окончания шифрования
-        std::chrono::duration<double> elapsed = end - start;
-        totalEncryptionTime += elapsed.count();
+        // auto end = std::chrono::high_resolution_clock::now(); // Замер времени окончания шифрования
+        // std::chrono::duration<double> elapsed = end - start;
+        // totalEncryptionTime += elapsed.count();
 
-        std::cout << "Блок № " << blockCount + 1 << " зашифрован за " << elapsed.count() << " секунд." << std::endl;
+        // std::cout << "Блок № " << blockCount + 1 << " зашифрован за " << elapsed.count() << " секунд." << std::endl;
         blockCount++;
     }
+    auto total_end = std::chrono::high_resolution_clock::now(); // Замер времени окончания шифрования
+    std::chrono::duration<double> total_elapsed = total_end - total_start;
+    totalEncryptionTime = total_elapsed.count();
 
     std::cout << "Общее время шифрования: " << totalEncryptionTime << " секунд." << std::endl;
     std::cout << "Общее количество блоков: " << blockCount << std::endl;
